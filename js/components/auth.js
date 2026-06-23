@@ -8,14 +8,14 @@ class AppStart extends Component {
         return html`
             <div class="h-full flex flex-col bg-black">
                 <div class="flex-1 relative cursor-pointer group overflow-hidden" ${on('click', () => navigate('login', {role: 'farmer'}))}>
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100">
+                    <img src="images/Bauern.png" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex justify-center items-end pb-20 transition duration-300">
                         <div class="bg-brand-beige text-brand-oliveDark font-bold text-xl py-4 px-8 rounded-2xl shadow-2xl text-center transform transition duration-500 group-hover:-translate-y-2 w-3/4">Als Landwirt:in<br>starten</div>
                     </div>
                 </div>
                 <div class="w-full h-1 bg-brand-olive z-10 shadow-lg"></div>
                 <div class="flex-1 relative cursor-pointer group overflow-hidden" ${on('click', () => navigate('login', {role: 'customer'}))}>
-                    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=600" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100">
+                    <img src="images/Konsumenten.png" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-110 group-hover:opacity-100">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex justify-center items-end pb-20 transition duration-300">
                         <div class="bg-brand-olive text-brand-beige font-bold text-xl py-4 px-8 rounded-2xl shadow-2xl text-center transform transition duration-500 group-hover:-translate-y-2 w-3/4">Als Kund:in<br>starten</div>
                     </div>
@@ -36,7 +36,7 @@ class AppLogin extends Component {
         showToast("Erfolgreich angemeldet!");
         // Rollenspezifisches Routing nach Login
         if (role === 'farmer') navigate('farmer-products');
-        else navigate('customer-map');
+        else navigate('customer-home');
     }
 
     render() {
@@ -49,9 +49,10 @@ class AppLogin extends Component {
                     </button>
                 </div>
                 <div class="flex flex-col items-center mt-10 mb-10">
-                    <div class="text-7xl mb-4 drop-shadow-md">🥗</div>
-                    <h1 class="text-3xl font-extrabold text-brand-olive tracking-widest uppercase">Hofwärts</h1>
-                    <p class="text-gray-500 font-medium mt-2">${isFarmer ? 'Login für Höfe' : 'Login für Kund*innen'}</p>
+                    <div class="text-7xl mb-4 drop-shadow-md">
+                        <img src="images/Hofklick_Logo.png"></div>
+                    <h1 class="text-3xl font-extrabold text-brand-olive tracking-widest uppercase">Hofklick</h1>
+                    <p class="text-gray-500 font-medium mt-2">${isFarmer ? 'Login für Landwirt*innen' : 'Login für Kund*innen'}</p>
                 </div>
                 <form ${on('submit', (e) => this.handleLogin(e))} class="flex flex-col gap-5 px-8">
                     <div>
@@ -82,7 +83,7 @@ class AppProfile extends Component {
 
     render() {
         const isFarmer = AppState.userRole.get() === 'farmer';
-        const bgImg = isFarmer ? 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=800' : 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800';
+        const bgImg = isFarmer ? 'images/BauerAuer.png' : 'images/Kunde.jpg';
         // Bestellungen werden je nach User gefiltert
         const myOrders = isFarmer ? [] : AppState.orders.get().filter(o => o.userId === 'customer1');
 

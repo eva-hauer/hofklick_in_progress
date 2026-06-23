@@ -34,7 +34,7 @@ class BottomNav extends Component {
             // Roter Punkt für Warenkorb-Anzahl
             const cartCount = AppState.cart.get().length;
             navItems = html`
-                <div class="flex-1 flex justify-center cursor-pointer" ${on('click', () => navigate('placeholder', {title: 'Startseite', tab: 'home'}))}>
+                <div class="flex-1 flex justify-center cursor-pointer" ${on('click', () => navigate('customer-home'))}>
                     <div class="${activeTab === 'home' ? activeClass : inactiveClass}"><i class="material-icons${activeTab === 'home' ? '' : '-outlined'} text-[28px]">home</i></div>
                 </div>
                 <div class="flex-1 flex justify-center cursor-pointer" ${on('click', () => navigate('customer-map'))}>

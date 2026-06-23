@@ -39,7 +39,7 @@ class FarmerDashboard extends Component {
         return html`
             <div class="h-full flex flex-col pb-20 overflow-y-auto bg-brand-bg">
                 <div class="relative h-64 bg-gray-200 rounded-b-[40px] overflow-hidden shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop" class="w-full h-full object-cover">
+                    <img src="images/BauerAuer.png" class="w-full h-full object-cover">
                     <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-8">
                         <p class="text-brand-beige font-medium text-sm mb-1">Willkommen zurück,</p>
                         <h1 class="text-white text-4xl font-bold">Bauer Auer!</h1>

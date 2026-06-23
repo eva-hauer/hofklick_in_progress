@@ -70,6 +70,7 @@ export function navigate(view, data = {}) {
         case 'farmer-products': el = document.createElement('farmer-products'); break;
         case 'add-product': el = document.createElement('add-product'); break;
         case 'edit-product': el = document.createElement('edit-product'); el.dataset.productId = data.productId; break;
+        case 'customer-home': el = document.createElement('customer-home'); break;
         case 'customer-map': el = document.createElement('customer-map'); break;
         case 'farm-details': el = document.createElement('farm-details'); el.dataset.farmId = data.farmId; break;
         case 'customer-cart': el = document.createElement('customer-cart'); break;

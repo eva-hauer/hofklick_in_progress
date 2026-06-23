@@ -29,10 +29,12 @@ const savedState = JSON.parse(localStorage.getItem('hofwaerts-state')) || {};
 export const AppState = {
     userRole: observable(savedState.userRole || null),
     cart: observable(savedState.cart || []),
+    favoriteFarms: observable(savedState.favoriteFarms || []),
+    favoriteProducts: observable(savedState.favoriteProducts || []),
     farms: observable([
         // Dummy-Daten für Landwirte
-        { id: 'f1', name: 'Bio Bauer Auer', lat: 48.3667, lng: 14.5167, img: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=150&h=150&fit=crop', distance: '2 km' },
-        { id: 'f2', name: 'Hofladen Müller', lat: 48.35, lng: 14.5, img: 'https://images.unsplash.com/photo-1595856754020-007eb78eb8fc?w=150&h=150&fit=crop', distance: '5 km' }
+        { id: 'f1', name: 'Bio Bauer Auer', lat: 48.3667, lng: 14.5167, img: 'images/BauerAuer.png', distance: '2 km' },
+        { id: 'f2', name: 'Hofladen Mayr', lat: 48.35, lng: 14.5, img: 'images/BauerMayr.png', distance: '5 km' }
     ]),
     products: observable([]),
     orders: observable([])
@@ -42,7 +44,9 @@ export const AppState = {
 export function saveState() {
     localStorage.setItem('hofwaerts-state', JSON.stringify({
         userRole: AppState.userRole.get(),
-        cart: AppState.cart.get()
+        cart: AppState.cart.get(),
+        favoriteFarms: AppState.favoriteFarms.get(),
+        favoriteProducts: AppState.favoriteProducts.get()
     }));
 }
 
@@ -65,3 +69,20 @@ export async function addProductToDB(productData) { await addDoc(collection(db, 
 export async function updateProductInDB(productId, productData) { await updateDoc(doc(db, 'products', productId), productData); }
 export async function deleteProductFromDB(productId) { await deleteDoc(doc(db, 'products', productId)); }
 export async function addOrderToDB(orderData) { await addDoc(collection(db, 'orders'), orderData); }
+
+// Favoriten lokal speichern: Hof oder Produkt kann geliked und wieder entliked werden
+export function toggleFavoriteFarm(farmId) {
+    const favorites = AppState.favoriteFarms.get();
+    const isFavorite = favorites.includes(farmId);
+    AppState.favoriteFarms.set(isFavorite ? favorites.filter(id => id !== farmId) : [...favorites, farmId]);
+    saveState();
+    return !isFavorite;
+}
+
+export function toggleFavoriteProduct(productId) {
+    const favorites = AppState.favoriteProducts.get();
+    const isFavorite = favorites.includes(productId);
+    AppState.favoriteProducts.set(isFavorite ? favorites.filter(id => id !== productId) : [...favorites, productId]);
+    saveState();
+    return !isFavorite;
+}
