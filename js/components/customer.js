@@ -159,14 +159,27 @@ class CustomerMap extends Component {
     }
 
     initMap() {
-        // Startet Karte in Linz (ohne Zoom-Schaltflächen, sodass es für Handy besser passt)
+        // Startet Karte in Linz als Fallback (ohne Zoom-Schaltflächen, sodass es für Handy besser passt)
         const map = L.map('leaflet-map', {zoomControl: false}).setView([48.3667, 14.5167], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
+        // Versucht, den aktuellen Standort des Users abzufragen (Geolocation API über Leaflet)
+        map.locate({setView: true, maxZoom: 13});
+
+        // Wenn der Nutzer die Freigabe erteilt, wird Standort mit einem blauen Punkt markiert
+        map.on('locationfound', (e) => {
+            L.circleMarker(e.latlng, {
+                radius: 8,
+                color: 'white',
+                weight: 2,
+                fillColor: '#3b82f6',
+                fillOpacity: 1
+            }).addTo(map);
+        });
+
         // Setzt für jeden Hof einen Pin
         AppState.farms.get().forEach(farm => {
-            const customIcon = L.divIcon({ html: `<div class="custom-map-icon"><img src="${farm.img}"></div>`, className: '', iconSize: [40, 40], iconAnchor: [20, 40] });
-            L.marker([farm.lat, farm.lng], {icon: customIcon}).addTo(map).on('click', () => navigate('farm-details', { farmId: farm.id }));
+            const customIcon = L.divIcon({ html: `<div class="custom-map-icon"><img src="${farm.img}"></div>`, className: '', iconSize: [40, 40], iconAnchor: [20, 40] });            L.marker([farm.lat, farm.lng], {icon: customIcon}).addTo(map).on('click', () => navigate('farm-details', { farmId: farm.id }));
         });
     }
 
