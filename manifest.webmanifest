@@ -4,8 +4,8 @@
 "display": "standalone",
 "scope": "./",
 "start_url": "./index.html",
-"name": "Hofwärts Plattform",
-"short_name": "Hofwärts",
+"name": "Hofklick Plattform",
+"short_name": "Hofklick",
 "orientation": "portrait",
 "description": "Regionale Direktvermarktung - Farm to Table",
 "icons": [
