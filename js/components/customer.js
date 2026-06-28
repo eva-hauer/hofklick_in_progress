@@ -159,7 +159,7 @@ class CustomerMap extends Component {
     }
 
     initMap() {
-        // Startet Karte in Linz als Fallback (ohne Zoom-Schaltflächen, sodass es für Handy besser passt)
+        // Startet Karte in Hagenberg als Fallback (ohne Zoom-Schaltflächen, sodass es für Handy besser passt)
         const map = L.map('leaflet-map', {zoomControl: false}).setView([48.3667, 14.5167], 13);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 

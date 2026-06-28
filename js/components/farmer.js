@@ -71,8 +71,11 @@ class FarmerProducts extends Component {
     }
 
     render() {
-        // Aktuell gibt es nur 1 Hof, darum hardcoded nach f1 filtern
-        const myProducts = AppState.products.get().filter(p => p.farmId === 'f1');
+        // Aktuell gibt es nur 1 Hof, darum hardcoded nach f1 filtern und alphabetisch sortieren
+        // (localeCompare verwendet deutsche Sortierung)
+        const myProducts = AppState.products.get()
+            .filter(p => p.farmId === 'f1')
+            .sort((a, b) => a.name.localeCompare(b.name));
 
         return html`
             <div class="h-full flex flex-col bg-brand-bg pb-24 overflow-y-auto">
