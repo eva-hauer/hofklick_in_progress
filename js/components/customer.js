@@ -236,7 +236,10 @@ class FarmDetails extends Component {
         }
 
         // Filtert alle Produkte auf diesen Hof
-        const farmProducts = AppState.products.get().filter(p => p.farmId === farmId);
+        // und sortiert sie alphabetisch (localeCompare -> deutsche Sortierung)
+        const farmProducts = AppState.products.get()
+            .filter(p => p.farmId === farmId)
+            .sort((a, b) => a.name.localeCompare(b.name));
         const favoriteFarmIds = AppState.favoriteFarms.get();
         const favoriteProductIds = AppState.favoriteProducts.get();
         const farmIsFavorite = favoriteFarmIds.includes(farmId);

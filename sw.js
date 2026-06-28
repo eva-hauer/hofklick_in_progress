@@ -20,6 +20,8 @@ const CACHED_URLS = [
     "images/BauerAuer.png",
     "images/BauerMayr.png",
     "images/Bauern.png",
+    "images/hofklick-logo-192.png",
+    "images/hofklick-logo-512.png",
     "images/Hofklick_Logo.png",
     "images/Karte.png",
     "images/Konsumenten.png",
