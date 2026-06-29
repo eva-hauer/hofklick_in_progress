@@ -1,3 +1,7 @@
+// Kapselt die Firebase-Konfiguration, den Offline-Cache und stellt den zentralen
+// App-State (mit Observables) bereit. Alle Datenbank-Lese- und Schreibzugriffe sowie die
+// Favoriten-Logik sind hier definiert.
+
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, updateDoc, initializeFirestore, persistentLocalCache, persistentMultipleTabManager }
     from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";

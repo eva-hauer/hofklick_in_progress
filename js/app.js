@@ -1,3 +1,6 @@
+// Initialisiert die App. Registriert den Service Worker, importiert alle Komponenten
+// und aktiviert den Router
+
 import './db.js';
 import './router.js';
 // KWM-JS Komponenten laden

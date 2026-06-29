@@ -1,3 +1,6 @@
+// Beinhaltet alle Kundensichten (Startseite mit den Favoriten, Leaflet-Karte,
+// Detailansicht eines Hofes und die Warenkorb- sowie Checkout-Logik).
+
 import { Component, html, on } from '../../kwm-js/index.js';
 import { AppState, saveState, addOrderToDB, toggleFavoriteFarm, toggleFavoriteProduct } from '../db.js';
 import { navigate, showToast } from '../router.js';

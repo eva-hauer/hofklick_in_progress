@@ -1,3 +1,6 @@
+// Beinhaltet das Dashboard für Landwirte sowie alle Ansichten zur
+// Produktverwaltung (Liste, Hinzufügen, Bearbeiten)
+
 import { Component, html, on, observable } from '../../kwm-js/index.js';
 import { AppState, addProductToDB, deleteProductFromDB, updateProductInDB } from '../db.js';
 import { navigate, showModal, showToast } from '../router.js';

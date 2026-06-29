@@ -1,3 +1,7 @@
+// Umfasst die App-Startseite mit Rollen-Auswahl, den Login und die Profil-Seite
+// (Anzeige von Accountdaten, Logout-Logik und der Bestellhistorie bei Kund:innen) sowie
+// Platzhalter für noch nicht existierende Seiten
+
 import { Component, html, on } from '../../kwm-js/index.js';
 import { AppState, saveState } from '../db.js';
 import { navigate, showToast } from '../router.js';

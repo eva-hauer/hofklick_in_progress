@@ -1,3 +1,8 @@
+// Kümmert sich um die Navigation zwischen den Ansichten, manipuliert das
+// DOM (leert den App-Root-Container und fügt die neue Komponente ein) und beinhaltet
+// globale UI-Helferfunktionen wie Toasts und Modals. Außerdem wird bei Navigation auf
+// eine noch nicht umgesetzte Seite ein Platzhalter ausgeliefert.
+
 const appRoot = document.getElementById('app-root');
 
 // UI Elemente, die öfter gebraucht werden sind hier an 1 Stelle definiert

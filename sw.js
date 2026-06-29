@@ -1,3 +1,8 @@
+//Der Service Worker für das Ofline-Caching. Er fängt Netzwerkanfragen ab und
+// wenn das Internet ausfällt, liefert er gecachte Dateien aus. Firestore-Netzwerkanfragen
+// werden vom Service Worker ignoriert, da Firebase sein eigenes Offline-Caching mitbringt
+// und es sonst zu Konflikten kommen könnte.
+
 // Grundlegende Funktionsweise:
 // Fetch-Anfragen (wie das Laden von HTML, CSS, JS) werden vom Service Worker abgefangen,
 // was die Basis für Offline-Fähigkeit und Caching bildet.

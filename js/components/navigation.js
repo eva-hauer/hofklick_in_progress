@@ -1,3 +1,6 @@
+// Beinhaltet die <bottom-nav> Komponente, die sich dynamisch anpasst, je
+// nachdem ob Landwirt:in oder Kund:in eingeloggt ist (inklusive rotem Warenkorb-Zähler)
+
 import { Component, html, on } from '../../kwm-js/index.js';
 import { AppState } from '../db.js';
 import { navigate } from '../router.js';
