@@ -1,5 +1,6 @@
 // Initialisiert die App. Registriert den Service Worker, importiert alle Komponenten
 // und aktiviert den Router
+//Dorothea ist jetzt auch dabei
 
 import './db.js';
 import './router.js';
