@@ -61,7 +61,7 @@ class AppLogin extends Component {
                 <form ${on('submit', (e) => this.handleLogin(e))} class="flex flex-col gap-5 px-8">
                     <div>
                         <label class="text-xs font-bold text-gray-400 uppercase ml-2">E-Mail</label>
-                        <input type="email" value="${isFarmer ? 'musterbauer@gmail.com' : 'monamusterfrau@gmail.com'}" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl p-4 mt-1 outline-none focus:border-brand-olive focus:bg-white transition-all">
+                        <input type="email" value="${isFarmer ? 'musterbauer@gmail.com' : 'johannesschoenboeck@gmail.com'}" class="w-full bg-gray-50 border-2 border-gray-100 rounded-2xl p-4 mt-1 outline-none focus:border-brand-olive focus:bg-white transition-all">
                     </div>
                     <div>
                         <label class="text-xs font-bold text-gray-400 uppercase ml-2">Passwort</label>
@@ -87,7 +87,7 @@ class AppProfile extends Component {
 
     render() {
         const isFarmer = AppState.userRole.get() === 'farmer';
-        const bgImg = isFarmer ? 'images/BauerAuer.png' : 'images/Kunde.jpg';
+        const bgImg = isFarmer ? 'images/BauerAuer.png' : 'images/Kunde.png';
         // Bestellungen werden je nach User gefiltert
         const myOrders = isFarmer ? [] : AppState.orders.get().filter(o => o.userId === 'customer1');
 
@@ -103,7 +103,7 @@ class AppProfile extends Component {
                         </button>
                     </div>
                     <div class="absolute bottom-8 left-8 text-white z-10">
-                        <h1 class="text-3xl font-bold mb-1 drop-shadow-md">${isFarmer ? 'Bauer Auer' : 'Mona Musterfrau'}</h1>
+                        <h1 class="text-3xl font-bold mb-1 drop-shadow-md">${isFarmer ? 'Bauer Auer' : 'Johannes Schönböck'}</h1>
                         <p class="text-brand-beige font-medium opacity-90 drop-shadow-md flex items-center gap-1">
                             <i class="material-icons text-sm">verified</i> ${isFarmer ? 'Landwirt:in' : 'Premium Kund:in'}
                         </p>
@@ -117,7 +117,7 @@ class AppProfile extends Component {
                             <div class="w-12 h-12 bg-brand-beige text-brand-olive rounded-full flex items-center justify-center font-bold text-xl">${isFarmer ? 'B' : 'M'}</div>
                             <div>
                                 <p class="text-xs text-gray-400 uppercase font-bold">E-Mail Adresse</p>
-                                <p class="text-gray-800 font-bold">${isFarmer ? 'musterbauer@gmail.com' : 'monamusterfrau@gmail.com'}</p>
+                                <p class="text-gray-800 font-bold">${isFarmer ? 'musterbauer@gmail.com' : 'johannesschoenboeck@gmail.com'}</p>
                             </div>
                         </div>
                     </div>
