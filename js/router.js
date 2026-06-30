@@ -6,6 +6,7 @@
 const appRoot = document.getElementById('app-root');
 
 // UI Elemente, die öfter gebraucht werden sind hier an 1 Stelle definiert
+//Erfolgsmessages
 export function showToast(message, type = 'success') {
     // Baut ein HTML-Popup zusammen und entfernt es nach 3 Sekunden wieder
     const toast = document.createElement('div');
